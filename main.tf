@@ -1,18 +1,11 @@
-# As a module, it's expected that a resource group will have already been created by the parent (root)
-# caller. We get that resource group's data here which will be reused to populate the required data
-# for the cluster.
-data "azurerm_resource_group" "k8s" {
-  name = var.resource_group_name
-}
-
 # ---------------------------------------------------------------------------------------------------------------------
 # CREATE A PRODUCTION-GRADE, AUTO-SCALING AKS KUBERNETES CLUSTER
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "azurerm_kubernetes_cluster" "k8s" {
   name                = var.cluster_name
-  location            = data.azurerm_resource_group.k8s.location
-  resource_group_name = data.azurerm_resource_group.k8s.name
+  location            = var.location
+  resource_group_name = var.resource_group_name
   node_resource_group = "${var.cluster_name}-nrg"
   dns_prefix          = "${var.cluster_name}-dns-prefix"
   sku_tier                = var.sku_tier
