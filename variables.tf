@@ -49,6 +49,11 @@ variable "agents_size" {
   type        = string
 }
 
+variable "log_analytics_workspace_id" {
+  description = "The ID of the existing Container Inisights workspace"
+  type = string
+}
+
 #variable "log_analytics_workspace_sku" {
 #  description = "The SKU (pricing level) of the Log Analytics workspace. For new subscriptions the SKU should be set to PerGB2018"
 #  type        = string
