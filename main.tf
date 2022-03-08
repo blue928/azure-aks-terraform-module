@@ -44,9 +44,11 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     enabled = false
   }
 
-  oms_agent {
-  log_analytics_workspace_id = var.log_analytics_workspace_id
-  }
+#christ, learn how to do a fucking dynamic already TODO
+# This fucking container insight bullshit is really starting to piss me off
+  #oms_agent {
+  #log_analytics_workspace_id = var.log_analytics_workspace_id
+  #}
 
   network_profile {
     load_balancer_sku = "Standard"
