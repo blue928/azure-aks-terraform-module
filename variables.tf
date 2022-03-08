@@ -9,6 +9,11 @@ variable "cluster_name" {
   default = null
 }
 
+variable "role_based_access_control" {
+  type = bool
+  description = "Enable RBAC?"
+}
+
 variable "cluster_log_analytics_workspace_name" {
   description = "(Optional) The name of the Analytics workspace"
   type        = string
@@ -44,17 +49,17 @@ variable "agents_size" {
   type        = string
 }
 
-variable "log_analytics_workspace_sku" {
-  description = "The SKU (pricing level) of the Log Analytics workspace. For new subscriptions the SKU should be set to PerGB2018"
-  type        = string
-  default     = "PerGB2018"
-}
+#variable "log_analytics_workspace_sku" {
+#  description = "The SKU (pricing level) of the Log Analytics workspace. For new subscriptions the SKU should be set to PerGB2018"
+#  type        = string
+#  default     = "PerGB2018"
+#}
 
-variable "log_retention_in_days" {
-  description = "The retention period for the logs in days"
-  type        = number
-  default     = 30
-}
+#variable "log_retention_in_days" {
+#  description = "The retention period for the logs in days"
+#  type        = number
+#  default     = 30
+#}
 
 variable "agents_count" {
   description = "The number of Agents that should exist in the Agent Pool. Please set `agents_count` `null` while `enable_auto_scaling` is `true` to avoid possible `agents_count` changes."
@@ -74,11 +79,11 @@ variable "tags" {
   default     = {}
 }
 
-variable "enable_log_analytics_workspace" {
-  type        = bool
-  description = "Enable the creation of azurerm_log_analytics_workspace and azurerm_log_analytics_solution or not"
-  default     = true
-}
+#variable "enable_log_analytics_workspace" {
+#  type        = bool
+#  description = "Enable the creation of azurerm_log_analytics_workspace and azurerm_log_analytics_solution or not"
+#  default     = true
+#}
 
 variable "vnet_subnet_id" {
   description = "(Optional) The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created."
