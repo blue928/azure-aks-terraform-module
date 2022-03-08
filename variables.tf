@@ -19,10 +19,10 @@ variable "cluster_log_analytics_workspace_name" {
   default     = null
 }
 
-variable "prefix" {
-  description = "(Required) The prefix for the resources created in the specified Azure Resource Group"
-  type        = string
-}
+#variable "prefix" {
+#  description = "(Required) The prefix for the resources created in the specified Azure Resource Group"
+#  type        = string
+#}
 
 variable "client_id" {
   description = "(Optional) The Client ID (appId) for the Service Principal used for the AKS deployment"
