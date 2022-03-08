@@ -15,6 +15,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   resource_group_name = data.azurerm_resource_group.k8s.name
   node_resource_group = "${var.cluster_name}-nrg"
   dns_prefix          = "${var.cluster_name}-dns-prefix"
+  sku_tier                = var.sku_tier
+  private_cluster_enabled = var.private_cluster_enabled
 
   default_node_pool {
     name = "agentpool"
