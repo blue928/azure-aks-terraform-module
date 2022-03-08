@@ -1,13 +1,9 @@
-# ---------------------------------------------------------------------------------------------------------------------
-# REQUIRED VERSIONS AND PROVIDERS
-# ---------------------------------------------------------------------------------------------------------------------
-
-# Module inherits provider configuration from parent.
-# terraform {
-#  required_providers {
-#    source = hashicorp/azurerm
-#  }
-#}
+# As a module, it's expected that a resource group will have already been created by the parent (root)
+# caller. We get that resource group's data here which will be reused to populate the required data
+# for the cluster.
+data "azurerm_resource_group" "k8s" {
+  name = var.resource_group_name
+}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # CREATE A PRODUCTION-GRADE, AUTO-SCALING AKS KUBERNETES CLUSTER
@@ -15,10 +11,10 @@
 
 resource "azurerm_kubernetes_cluster" "k8s" {
   name                = var.cluster_name
-  location            = var.cluster_location
-  resource_group_name = var.cluster_resource_group_name
-  node_resource_group = var.cluster_node_resource_group_name
-  dns_prefix          = var.cluster_dns_prefix
+  location            = data.azurerm_resource_group.k8s.location
+  resource_group_name = data.azurerm_resource_group.k8s.name
+  node_resource_group = "${var.cluster_name}-nrg"
+  dns_prefix          = "${var.cluster_name}-dns-prefix"
 
   default_node_pool {
     name = "agentpool"
