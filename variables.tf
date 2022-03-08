@@ -6,6 +6,7 @@ variable "resource_group_name" {
 variable "cluster_name" {
   description = "(Optional) The name for the AKS resources created in the specified Azure Resource Group. This variable overwrites the 'prefix' var (The 'prefix' var will still be applied to the dns_prefix if it is set)"
   type        = string
+  default = null
 }
 
 variable "cluster_log_analytics_workspace_name" {
