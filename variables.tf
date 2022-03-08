@@ -10,6 +10,7 @@ variable "cluster_name" {
 }
 
 variable "cluster_node_resource_group_name" {
+  type = string
   description = "The name of the node resource group that Microsoft automatically creates when creating an AKS Cluster."
 }
 
