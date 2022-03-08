@@ -8,11 +8,6 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "cluster_node_resource_group_name" {
-  type = string
-  description = "The name of the node resource group that Microsoft automatically creates when creating an AKS Cluster."
-}
-
 variable "cluster_log_analytics_workspace_name" {
   description = "(Optional) The name of the Analytics workspace"
   type        = string
