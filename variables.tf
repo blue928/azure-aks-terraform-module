@@ -92,7 +92,7 @@ variable "vnet_subnet_id" {
 }
 
 variable "os_disk_size_gb" {
-  description = "Disk size of nodes in GBs."
+  description = "Disk size of nodes in GBs. Cannot be less than 32"
   type        = number
   default     = 50
 }
