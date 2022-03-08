@@ -9,12 +9,6 @@ variable "cluster_name" {
   default = null
 }
 
-variable "role_based_access_control" {
-  type = bool
-  description = "Enable RBAC?"
-  default = false
-}
-
 variable "cluster_log_analytics_workspace_name" {
   description = "(Optional) The name of the Analytics workspace"
   type        = string
