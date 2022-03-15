@@ -74,3 +74,7 @@ output "admin_username" {
 output "admin_password" {
   value = length(azurerm_kubernetes_cluster.k8s.kube_admin_config) > 0 ? azurerm_kubernetes_cluster.k8s.kube_admin_config.0.password : ""
 }
+
+output "az_aks_get_credentials" {
+  value = "az aks get-credentials --name ${azurerm_kubernetes_cluster.k8s.name} --resource-group ${azurerm_resource_group.k8s.name}"
+}
