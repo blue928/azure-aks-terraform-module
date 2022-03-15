@@ -51,7 +51,7 @@ variable "agents_size" {
 
 variable "log_analytics_workspace_id" {
   description = "The ID of the existing Container Inisights workspace"
-  type = string
+  type        = string
 }
 
 #variable "log_analytics_workspace_sku" {
