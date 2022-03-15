@@ -76,5 +76,5 @@ output "admin_password" {
 }
 
 output "az_aks_get_credentials" {
-  value = "az aks get-credentials --name ${azurerm_kubernetes_cluster.k8s.name} --resource-group ${azurerm_resource_group.k8s.name}"
+  value = "az aks get-credentials --name ${azurerm_kubernetes_cluster.k8s.name} --resource-group ${var.resource_group_name}"
 }
