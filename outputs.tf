@@ -79,3 +79,7 @@ output "admin_password" {
 output "az_aks_get_credentials" {
   value = "az aks get-credentials --name ${azurerm_kubernetes_cluster.k8s.name} --resource-group ${var.resource_group_name}"
 }
+
+output "lb_public_ip" {
+  value = azurerm_public_ip.lb_public_ip.ip_address
+}
