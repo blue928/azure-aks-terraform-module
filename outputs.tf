@@ -39,9 +39,10 @@ output "kube_config_raw" {
   value     = azurerm_kubernetes_cluster.k8s.kube_config_raw
 }
 
-output "http_application_routing_zone_name" {
-  value = length(azurerm_kubernetes_cluster.k8s.addon_profile) > 0 && length(azurerm_kubernetes_cluster.k8s.addon_profile[0].http_application_routing) > 0 ? azurerm_kubernetes_cluster.k8s.addon_profile[0].http_application_routing[0].http_application_routing_zone_name : ""
-}
+# remove per 3.0 updates
+#output "http_application_routing_zone_name" {
+#  value = length(azurerm_kubernetes_cluster.k8s.addon_profile) > 0 && length(azurerm_kubernetes_cluster.k8s.addon_profile[0].http_application_routing) > 0 ? azurerm_kubernetes_cluster.k8s.addon_profile[0].http_application_routing[0].http_application_routing_zone_name : ""
+#}
 
 output "system_assigned_identity" {
   value = azurerm_kubernetes_cluster.k8s.identity
