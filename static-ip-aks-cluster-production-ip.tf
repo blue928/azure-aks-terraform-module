@@ -8,7 +8,7 @@ resource "azurerm_public_ip" "lb_public_ip" {
   allocation_method   = "Static"
   sku                 = "Standard"
 
-  tags = {
-    environment = var.environment
-  }
+  #tags = {
+  #  environment = var.environment
+  #}
 }
