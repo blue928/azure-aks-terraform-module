@@ -18,7 +18,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     # Let Azure manage the API version automatically
     # orchestrator_version = data.azurerm_kubernetes_service_versions.current.latest_version
     vm_size             = var.agents_size
-    availability_zones  = [1, 2, 3]
+    # todo remove as of 3.0 availability_zones  = [1, 2, 3]
     type                = "VirtualMachineScaleSets"
     enable_auto_scaling = true
     max_count           = var.agents_max_count
@@ -33,9 +33,10 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     type = "SystemAssigned"
   }
 
-  role_based_access_control {
-    enabled = false
-  }
+  # todo remove as of 3.0
+  #role_based_access_control {
+  #  enabled = false
+  #}
 
 
   oms_agent {
