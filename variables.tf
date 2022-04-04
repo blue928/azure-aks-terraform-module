@@ -54,18 +54,6 @@ variable "log_analytics_workspace_id" {
   type        = string
 }
 
-#variable "log_analytics_workspace_sku" {
-#  description = "The SKU (pricing level) of the Log Analytics workspace. For new subscriptions the SKU should be set to PerGB2018"
-#  type        = string
-#  default     = "PerGB2018"
-#}
-
-#variable "log_retention_in_days" {
-#  description = "The retention period for the logs in days"
-#  type        = number
-#  default     = 30
-#}
-
 variable "agents_count" {
   description = "The number of Agents that should exist in the Agent Pool. Please set `agents_count` `null` while `enable_auto_scaling` is `true` to avoid possible `agents_count` changes."
   type        = number
@@ -327,4 +315,10 @@ variable "enable_host_encryption" {
   description = "Enable Host Encryption for default node pool. Encryption at host feature must be enabled on the subscription: https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli"
   type        = bool
   default     = false
+}
+
+variable "lb_public_ip_name" {
+  description = "The name of the public IP address to use for the Kubernetes Cluster load balancer. Changing this forces a new resource to be created."
+  type        = string
+  default     = "cluster-lb-public-ip"
 }
