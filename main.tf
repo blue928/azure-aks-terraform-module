@@ -17,7 +17,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 
     # Let Azure manage the API version automatically
     # orchestrator_version = data.azurerm_kubernetes_service_versions.current.latest_version
-    vm_size             = var.agents_size
+    vm_size = var.agents_size
     # todo remove as of 3.0 availability_zones  = [1, 2, 3]
     type                = "VirtualMachineScaleSets"
     enable_auto_scaling = true
