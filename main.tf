@@ -52,3 +52,11 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     #environment = var.environment
   }
 }
+
+# TODO clean this up
+resource "azurerm_role_assignment" "example" {
+  principal_id                     = azurerm_kubernetes_cluster.k8s.kubelet_identity[0].object_id
+  role_definition_name             = "AcrPull"
+  scope                            = azurerm_container_registry.k8s.id
+  skip_service_principal_aad_check = true
+}
