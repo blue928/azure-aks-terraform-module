@@ -322,3 +322,8 @@ variable "lb_public_ip_name" {
   type        = string
   default     = "cluster-lb-public-ip"
 }
+
+variable "azurerm_container_registry_id" {
+  description = "The resource ID of the Azure Container Registry to use for the Kubernetes Cluster. Changing this forces a new resource to be created."
+  type        = string
+}
