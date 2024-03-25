@@ -39,9 +39,9 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   #}
 
 
-  oms_agent {
-    log_analytics_workspace_id = var.log_analytics_workspace_id
-  }
+ # oms_agent {
+ #   log_analytics_workspace_id = var.log_analytics_workspace_id
+ # }
 
   network_profile {
     load_balancer_sku = "standard"

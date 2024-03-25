@@ -49,10 +49,10 @@ variable "agents_size" {
   type        = string
 }
 
-variable "log_analytics_workspace_id" {
-  description = "The ID of the existing Container Inisights workspace"
-  type        = string
-}
+# variable "log_analytics_workspace_id" {
+#   description = "The ID of the existing Container Inisights workspace"
+#   type        = string
+# }
 
 variable "agents_count" {
   description = "The number of Agents that should exist in the Agent Pool. Please set `agents_count` `null` while `enable_auto_scaling` is `true` to avoid possible `agents_count` changes."
