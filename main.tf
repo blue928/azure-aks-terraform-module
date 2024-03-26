@@ -25,8 +25,9 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     min_count           = var.agents_min_count
     os_disk_size_gb     = var.os_disk_size_gb
 
-    node_taints = []
-    tags        = {}
+   upgrade_settings {
+              max_surge = "10%"
+            }
   }
 
   identity {
