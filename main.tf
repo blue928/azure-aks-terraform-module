@@ -15,43 +15,27 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     name = "agentpool"
     # node_count      = var.agent_count
 
-    # Let Azure manage the API version automatically
-    # orchestrator_version = data.azurerm_kubernetes_service_versions.current.latest_version
-    vm_size = var.agents_size
-    # todo remove as of 3.0 availability_zones  = [1, 2, 3]
+    vm_size             = var.agents_size
     type                = "VirtualMachineScaleSets"
     enable_auto_scaling = true
     max_count           = var.agents_max_count
     min_count           = var.agents_min_count
     os_disk_size_gb     = var.os_disk_size_gb
 
-   upgrade_settings {
-              max_surge = "10%"
-            }
+    upgrade_settings {
+      max_surge = "10%"
+    }
   }
 
   identity {
     type = "SystemAssigned"
   }
 
-  # todo remove as of 3.0
-  #role_based_access_control {
-  #  enabled = false
-  #}
-
-
- # oms_agent {
- #   log_analytics_workspace_id = var.log_analytics_workspace_id
- # }
-
   network_profile {
     load_balancer_sku = "standard"
     network_plugin    = "kubenet"
   }
 
-  tags = {
-    #environment = var.environment
-  }
 }
 
 # TODO clean this up
