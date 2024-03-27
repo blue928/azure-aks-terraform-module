@@ -14,17 +14,6 @@ variable "cluster_name" {
   default     = null
 }
 
-variable "cluster_log_analytics_workspace_name" {
-  description = "(Optional) The name of the Analytics workspace"
-  type        = string
-  default     = null
-}
-
-#variable "prefix" {
-#  description = "(Required) The prefix for the resources created in the specified Azure Resource Group"
-#  type        = string
-#}
-
 variable "client_id" {
   description = "(Optional) The Client ID (appId) for the Service Principal used for the AKS deployment"
   type        = string
@@ -49,34 +38,12 @@ variable "agents_size" {
   type        = string
 }
 
-# variable "log_analytics_workspace_id" {
-#   description = "The ID of the existing Container Inisights workspace"
-#   type        = string
-# }
-
 variable "agents_count" {
   description = "The number of Agents that should exist in the Agent Pool. Please set `agents_count` `null` while `enable_auto_scaling` is `true` to avoid possible `agents_count` changes."
   type        = number
   default     = 2
 }
 
-variable "public_ssh_key" {
-  description = "A custom ssh key to control access to the AKS cluster"
-  type        = string
-  default     = ""
-}
-
-variable "tags" {
-  type        = map(string)
-  description = "Any tags that should be present on the Virtual Network resources"
-  default     = {}
-}
-
-#variable "enable_log_analytics_workspace" {
-#  type        = bool
-#  description = "Enable the creation of azurerm_log_analytics_workspace and azurerm_log_analytics_solution or not"
-#  default     = true
-#}
 
 variable "vnet_subnet_id" {
   description = "(Optional) The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created."
