@@ -1,3 +1,4 @@
+/**
 resource "azurerm_public_ip" "lb_public_ip" {
   name = var.lb_public_ip_name
 
@@ -12,3 +13,4 @@ resource "azurerm_public_ip" "lb_public_ip" {
   #  environment = var.environment
   #}
 }
+*/
